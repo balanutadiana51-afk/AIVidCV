@@ -27,6 +27,7 @@ const CreateVideoPage = () => {
   };
 
   const handleVideoComplete = (video: VideoGeneration) => {
+    console.log('Video generation completed', video);
     setCurrentStep('complete');
     // In a real app, you'd save the video data.
     // We'll navigate back to the dashboard after a short delay.
