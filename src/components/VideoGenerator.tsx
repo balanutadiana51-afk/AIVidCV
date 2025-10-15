@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Loader2, CheckCircle, AlertCircle, Download, Share2, QrCode, ServerCrash, RefreshCw } from 'lucide-react';
+import { Loader2, CheckCircle, Download, Share2, QrCode, ServerCrash, RefreshCw } from 'lucide-react';
 import { CVData, QuestionnaireData, VideoGeneration, SubscriptionTier } from '../types';
 import { generateQRCode } from '../utils/qrCodeGenerator';
 import { generateVideo, checkVideoStatus } from '../utils/pikaApi';

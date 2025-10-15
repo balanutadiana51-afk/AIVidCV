@@ -9,6 +9,14 @@ export interface RunwayGenerationParams {
   style?: string;
 }
 
+export interface RunwayStatusResponse {
+  id: string;
+  status: 'queued' | 'processing' | 'completed' | 'failed';
+  progress?: number;
+  videoUrl?: string;
+  [key: string]: unknown;
+}
+
 export const generateVideo = async (params: RunwayGenerationParams): Promise<string> => {
   try {
     const response = await axios.post(
@@ -34,9 +42,9 @@ export const generateVideo = async (params: RunwayGenerationParams): Promise<str
   }
 };
 
-export const checkVideoStatus = async (generationId: string): Promise<any> => {
+export const checkVideoStatus = async (generationId: string): Promise<RunwayStatusResponse> => {
   try {
-    const response = await axios.get(
+    const response = await axios.get<RunwayStatusResponse>(
       `${RUNWAY_API_URL}/generate/${generationId}`,
       {
         headers: {

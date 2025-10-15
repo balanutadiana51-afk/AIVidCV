@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createVideoPrompt } from './cvParser';
 import { QuestionnaireData } from '../types';
 
@@ -30,6 +29,7 @@ export const generateVideo = async (params: PikaGenerationParams): Promise<strin
   }
   const prompt = createVideoPrompt(params.cvText, params.questionnaireData);
   console.log('--- Sending to Pika API (Mock) ---');
+  console.log('Endpoint:', `${PIKA_API_URL}/generate`);
   console.log('Prompt:', prompt);
   console.log('API Key:', PIKA_API_KEY ? `${PIKA_API_KEY.substring(0, 4)}...` : 'Not found');
   
